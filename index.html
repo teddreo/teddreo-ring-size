@@ -309,10 +309,41 @@
     table{min-width:0; width:100%;}
     thead th, tbody td{padding-left:10px; padding-right:10px;}
   }
+
+  /* DISCLAIMER GATE */
+  .gate{position:fixed; inset:0; z-index:1000; display:flex; align-items:center; justify-content:center; padding:20px; background:rgba(34,30,23,0.5); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); animation:gateFade .4s ease both;}
+  .gate[hidden]{display:none;}
+  .gate-box{position:relative; width:100%; max-width:420px; background:var(--cream); padding:44px 36px 34px; text-align:center; box-shadow:0 24px 70px rgba(34,30,23,0.3); animation:gateRise .5s cubic-bezier(.2,.7,.2,1) both;}
+  .gate-box::before{content:""; position:absolute; inset:8px; border:0.5px solid var(--gold); opacity:.55; pointer-events:none;}
+  .gate-eyebrow{font-size:10.5px; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold-deep); margin:0 0 12px;}
+  .gate-box h2{font-size:30px; line-height:1.2; margin:0; color:var(--ink);}
+  .gate-rule{display:flex; align-items:center; justify-content:center; gap:10px; margin:18px auto 20px; width:120px; color:var(--gold);}
+  .gate-rule::before,.gate-rule::after{content:""; flex:1; height:0.5px; background:currentColor;}
+  .gate-rule i{width:5px; height:5px; background:currentColor; transform:rotate(45deg);}
+  .gate-text{margin:0; font-size:14px; line-height:1.95; color:var(--ink); text-align:justify; text-justify:inter-character;}
+  .gate-note{margin:22px 0 0; font-size:12.5px; letter-spacing:0.06em; color:var(--ink-soft);}
+  .gate-btn{margin-top:14px; width:100%; padding:14px 20px; font:inherit; font-size:14px; letter-spacing:0.3em; text-indent:0.3em; color:var(--cream); background:var(--ink); border:0; cursor:pointer; transition:background .25s, letter-spacing .25s;}
+  .gate-btn:hover{background:var(--gold-deep);}
+  .gate-btn:focus-visible{outline:1px solid var(--gold-deep); outline-offset:3px;}
+  body.gated{overflow:hidden;}
+  @keyframes gateFade{from{opacity:0}to{opacity:1}}
+  @keyframes gateRise{from{opacity:0; transform:translateY(14px)}to{opacity:1; transform:none}}
+  @media (prefers-reduced-motion:reduce){.gate,.gate-box{animation:none;}}
+  @media (max-width:480px){.gate-box{padding:38px 26px 28px;}}
 </style>
 </head>
 <body>
 
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gateTitle" hidden>
+  <div class="gate-box">
+    <p class="gate-eyebrow">Disclaimer</p>
+    <h2 id="gateTitle">免責聲明</h2>
+    <div class="gate-rule" aria-hidden="true"><i></i></div>
+    <p class="gate-text">本站僅提供準確之測量工具，請確認已正確使用卡片校正螢幕比例；若因個人操作不當或測量判斷誤差導致尺寸不合，恕不承擔任何責任（亦不作為免費退換貨之依據）。</p>
+    <p class="gate-note">同意才可以使用此網站</p>
+    <button type="button" class="gate-btn" id="gateAgree">我同意</button>
+  </div>
+</div>
 <header>
   <div class="nav">
     <a href="https://www.teddreo.com.tw/" target="_blank" rel="noopener noreferrer" aria-label="前往 Teddreo 官網">
@@ -648,5 +679,24 @@ RING_DATA.forEach((row, i) => {
 })();
 </script>
 
+<script>
+(function(){
+  var gate=document.getElementById('gate'), btn=document.getElementById('gateAgree');
+  var parts=document.querySelectorAll('body > header, body > section, body > footer');
+  function lock(on){
+    document.body.classList.toggle('gated',on);
+    parts.forEach(function(el){ if(on){el.setAttribute('inert','');}else{el.removeAttribute('inert');} });
+  }
+  var agreed=false;
+  try{ agreed=sessionStorage.getItem('teddreo-agreed')==='1'; }catch(e){}
+  if(!agreed){
+    gate.hidden=false; lock(true); btn.focus();
+    btn.addEventListener('click',function(){
+      try{ sessionStorage.setItem('teddreo-agreed','1'); }catch(e){}
+      gate.hidden=true; lock(false);
+    });
+  }
+})();
+</script>
 </body>
 </html>
