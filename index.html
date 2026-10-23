@@ -241,6 +241,23 @@
   tbody td:first-child{font-family:'Cormorant Garamond', serif; font-size:18px; color:var(--gold-deep);}
   .table-note{margin-top:18px; font-size:12.5px; color:var(--ink-soft); line-height:1.7;}
 
+
+  /* INTERNATIONAL SIZES */
+  .size-warn{border:0.5px solid var(--gold); border-left:3px solid var(--gold-deep); background:var(--card); padding:16px 20px; border-radius:3px; margin-bottom:24px;}
+  .size-warn p{margin:0; font-size:14px; line-height:1.85; color:var(--ink);}
+  .size-warn .size-warn-title{font-weight:600; color:var(--gold-deep); margin-bottom:6px; font-size:15px;}
+  .intl-wrap{-webkit-overflow-scrolling:touch;}
+  .intl-table{width:100%; min-width:720px; margin:0;}
+  .intl-table th, .intl-table td{padding:13px 14px; text-align:center; border-top:0.5px solid var(--line); border-left:0.5px solid var(--line); white-space:nowrap;}
+  .intl-table tr:first-child th, .intl-table tr:first-child td{border-top:none;}
+  .intl-table th[scope=row]{position:sticky; left:0; z-index:1; background:var(--card); color:var(--gold-deep); font-family:'Cormorant Garamond', serif; font-weight:500; font-size:16px; border-left:none; min-width:96px;}
+  .intl-table th[scope=row] small{display:block; font-size:12px; letter-spacing:0.04em;}
+  .intl-table tbody tr:nth-child(even){background:transparent;}
+  .intl-table tbody tr:nth-child(odd) td{background:var(--card);}
+  .intl-table tbody td:first-child{font-family:inherit; font-size:14px; color:var(--ink);}
+  .intl-table tr.is-ours th[scope=row]{background:var(--gold-deep); color:var(--cream);}
+  .intl-table tr.is-ours td{background:#EFE2C4; color:var(--gold-deep); font-weight:700; border-top:2px solid var(--gold-deep); border-bottom:2px solid var(--gold-deep);}
+
   /* MEASURE GUIDE */
   .guide{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:18px;}
   .guide-item{display:flex; flex-direction:column; padding:20px 18px; border:0.5px solid var(--line); border-radius:4px; background:var(--card); min-height:280px;}
@@ -352,6 +369,7 @@
     <nav class="nav-links">
       <a href="#converter">戒圍換算</a>
       <a href="#chart">尺寸對照表</a>
+      <a href="#intl">各國碼對照</a>
       <a href="#guide">量戒圍方式</a>
     </nav>
   </div>
@@ -434,7 +452,37 @@
         </table>
       </div>
     </div>
-    <p class="table-note">戒指尺寸 26 號以上依既有級距趨勢換算；加上品牌版寬與版型略有差異，實際尺寸建議洽詢 Teddreo 線上客服協助確認。</p>
+    <p class="table-note">本表為港碼標準尺寸對照；加上品牌版寬與版型略有差異，實際尺寸建議洽詢 Teddreo 線上客服協助確認。</p>
+  </div>
+</section>
+
+<section id="intl">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">International sizes</div>
+      <h2>各國戒圍碼對照</h2>
+      <p>不同國家的戒圍碼數標準不同，下表為本店常用港碼對應的各國碼數。</p>
+    </div>
+
+    <div class="size-warn" role="note">
+      <p class="size-warn-title">⚠️ 請注意：各國戒圍碼數標準不同</p>
+      <p>同樣是「8 號」，在台灣／香港、美國、日本、歐洲代表的尺寸並不一樣。本店使用的是<b>港碼</b>（表中標示的深色列）。請務必以「內徑 mm」或「周長 mm」為準，<b>自行確認清楚後再下單</b>，避免訂錯尺寸。</p>
+    </div>
+
+    <div class="table-wrap intl-wrap">
+      <table class="intl-table">
+        <tbody>
+              <tr><th scope="row">歐碼<small>EU</small></th><td>47</td><td>50</td><td>52</td><td>55</td><td>58</td><td>60</td><td>63</td><td>65</td><td>69</td></tr>
+              <tr><th scope="row">美碼<small>US</small></th><td>4</td><td>5¼</td><td>6¼</td><td>7½</td><td>8½</td><td>9¼</td><td>10½</td><td>11½</td><td>12½</td></tr>
+              <tr><th scope="row">英碼<small>UK</small></th><td>H</td><td>K</td><td>L½</td><td>O</td><td>Q</td><td>S</td><td>U½</td><td>W</td><td>Y½</td></tr>
+              <tr><th scope="row">日碼<small>JP</small></th><td>6</td><td>10</td><td>12</td><td>15</td><td>17</td><td>19</td><td>22</td><td>24</td><td>27</td></tr>
+              <tr class="is-ours"><th scope="row">本店尺碼<small>港碼 HK</small></th><td>8</td><td>11</td><td>13</td><td>16</td><td>18</td><td>20</td><td>23</td><td>25</td><td>28</td></tr>
+              <tr><th scope="row">內徑<small>mm</small></th><td>14.8</td><td>15.9</td><td>16.6</td><td>17.6</td><td>18.4</td><td>19.1</td><td>20.1</td><td>20.8</td><td>21.8</td></tr>
+              <tr><th scope="row">周長<small>mm</small></th><td>46.5</td><td>49.9</td><td>52.1</td><td>55.3</td><td>57.8</td><td>59.5</td><td>63.1</td><td>65.3</td><td>68.5</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note">各國碼數為依內徑、周長換算之參考值，不同品牌與標準略有差異（日碼、英碼、歐碼可能相差半號至一號）；請以「內徑」或「周長」為準，並自行確認後再下單。</p>
   </div>
 </section>
 
@@ -529,7 +577,7 @@
 </footer>
 
 <script>
-const RING_DATA = [{"hk": 2, "diam": 12.8, "circ": 40.2}, {"hk": 3, "diam": 13.1, "circ": 41.2}, {"hk": 4, "diam": 13.4, "circ": 42.1}, {"hk": 5, "diam": 13.7, "circ": 43.0}, {"hk": 6, "diam": 14.0, "circ": 44.0}, {"hk": 7, "diam": 14.3, "circ": 44.9}, {"hk": 8, "diam": 14.8, "circ": 46.5}, {"hk": 9, "diam": 15.2, "circ": 47.8}, {"hk": 10, "diam": 15.4, "circ": 48.4}, {"hk": 11, "diam": 15.5, "circ": 48.7}, {"hk": 12, "diam": 16.2, "circ": 50.9}, {"hk": 13, "diam": 16.5, "circ": 51.8}, {"hk": 14, "diam": 16.8, "circ": 52.8}, {"hk": 15, "diam": 17.3, "circ": 54.3}, {"hk": 16, "diam": 17.5, "circ": 55.0}, {"hk": 17, "diam": 17.8, "circ": 55.9}, {"hk": 18, "diam": 18.2, "circ": 57.2}, {"hk": 19, "diam": 18.6, "circ": 58.4}, {"hk": 20, "diam": 19.0, "circ": 59.7}, {"hk": 21, "diam": 19.2, "circ": 60.3}, {"hk": 22, "diam": 19.8, "circ": 62.2}, {"hk": 23, "diam": 20.0, "circ": 62.8}, {"hk": 24, "diam": 20.4, "circ": 64.1}, {"hk": 25, "diam": 20.8, "circ": 65.3}, {"hk": 26, "diam": 21.1, "circ": 66.4}, {"hk": 27, "diam": 21.5, "circ": 67.5}, {"hk": 28, "diam": 21.9, "circ": 68.6}, {"hk": 29, "diam": 22.2, "circ": 69.7}, {"hk": 30, "diam": 22.6, "circ": 70.8}, {"hk": 31, "diam": 22.9, "circ": 71.9}];
+const RING_DATA = [{"hk": 1, "diam": 12.4, "circ": 38.9}, {"hk": 2, "diam": 12.7, "circ": 39.9}, {"hk": 3, "diam": 13.1, "circ": 41.1}, {"hk": 4, "diam": 13.4, "circ": 42.1}, {"hk": 5, "diam": 13.8, "circ": 43.3}, {"hk": 6, "diam": 14.1, "circ": 44.3}, {"hk": 7, "diam": 14.4, "circ": 45.2}, {"hk": 8, "diam": 14.8, "circ": 46.5}, {"hk": 9, "diam": 15.2, "circ": 47.7}, {"hk": 10, "diam": 15.5, "circ": 48.7}, {"hk": 11, "diam": 15.9, "circ": 49.9}, {"hk": 12, "diam": 16.2, "circ": 50.9}, {"hk": 13, "diam": 16.6, "circ": 52.1}, {"hk": 14, "diam": 17.0, "circ": 53.4}, {"hk": 15, "diam": 17.3, "circ": 54.3}, {"hk": 16, "diam": 17.6, "circ": 55.3}, {"hk": 17, "diam": 18.0, "circ": 56.5}, {"hk": 18, "diam": 18.4, "circ": 57.8}, {"hk": 19, "diam": 18.7, "circ": 58.7}, {"hk": 20, "diam": 19.1, "circ": 59.5}, {"hk": 21, "diam": 19.4, "circ": 60.9}, {"hk": 22, "diam": 19.8, "circ": 62.2}, {"hk": 23, "diam": 20.1, "circ": 63.1}, {"hk": 24, "diam": 20.4, "circ": 64.6}, {"hk": 25, "diam": 20.8, "circ": 65.3}, {"hk": 26, "diam": 21.2, "circ": 66.6}, {"hk": 27, "diam": 21.5, "circ": 67.5}, {"hk": 28, "diam": 21.8, "circ": 68.5}, {"hk": 29, "diam": 22.2, "circ": 69.7}, {"hk": 30, "diam": 22.5, "circ": 70.6}, {"hk": 31, "diam": 22.8, "circ": 71.6}, {"hk": 32, "diam": 23.2, "circ": 72.8}, {"hk": 33, "diam": 23.6, "circ": 74.1}];
 
 let mode = 'c';
 const modeC = document.getElementById('mode-c');
